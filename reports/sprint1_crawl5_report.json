@@ -1,0 +1,125 @@
+{
+  "run_at_utc": "2026-04-17T08:13:15.226211+00:00",
+  "total_sources": 5,
+  "success_count": 5,
+  "partial_count": 0,
+  "error_count": 0,
+  "total_elapsed_ms": 5138.8,
+  "results": [
+    {
+      "source_name": "VnExpress",
+      "base_url": "https://vnexpress.net",
+      "status": "success",
+      "error": null,
+      "homepage_fetch_ms": 1292.07,
+      "article_links_found": 10,
+      "article_links_sample": [
+        "https://vnexpress.net/",
+        "https://vnexpress.net/lich-van-nien",
+        "https://vnexpress.net/tin-tuc-24h",
+        "https://vnexpress.net/chu-de/thanh-pho-ha-noi-2056",
+        "https://vnexpress.net/chu-de/thanh-pho-ho-chi-minh-2091"
+      ],
+      "article_fetch_attempted": 3,
+      "article_fetch_succeeded": 3,
+      "article_titles_sample": [
+        "Báo VnExpress - Báo tiếng Việt nhiều người xem nhất",
+        "Lịch âm, Lịch vạn niên 2026 - Xem lịch âm, lịch dương, giờ hoàng đạo...",
+        "Tin tức 24h tại Việt Nam & Thế giới mới nhất [HÔM NAY]"
+      ],
+      "total_elapsed_ms": 2853.82
+    },
+    {
+      "source_name": "Tuoi Tre",
+      "base_url": "https://tuoitre.vn",
+      "status": "success",
+      "error": null,
+      "homepage_fetch_ms": 1634.24,
+      "article_links_found": 10,
+      "article_links_sample": [
+        "https://tuoitre.vn/",
+        "https://tuoitre.vn/can-biet.htm",
+        "https://tuoitre.vn/danh-cho-ban.htm",
+        "https://tuoitre.vn/tin-moi-nhat.htm",
+        "https://tuoitre.vn/tin-xem-nhieu.htm"
+      ],
+      "article_fetch_attempted": 3,
+      "article_fetch_succeeded": 3,
+      "article_titles_sample": [
+        "Báo Tuổi Trẻ - Tin tức mới nhất, tin nhanh, tin nóng 24h",
+        "Thông Tin - Cần Biết - Mua Bán - Dịch Vụ - Tuổi Trẻ Online",
+        "Dành cho bạn"
+      ],
+      "total_elapsed_ms": 3910.17
+    },
+    {
+      "source_name": "Thanh Nien",
+      "base_url": "https://thanhnien.vn",
+      "status": "success",
+      "error": null,
+      "homepage_fetch_ms": 1696.16,
+      "article_links_found": 10,
+      "article_links_sample": [
+        "https://thanhnien.vn/ban-can-biet.htm",
+        "https://thanhnien.vn/tien-ich/thoi-tiet.htm",
+        "https://thanhnien.vn/lien-he.htm",
+        "https://thanhnien.vn/",
+        "https://thanhnien.vn/chinh-tri.htm"
+      ],
+      "article_fetch_attempted": 3,
+      "article_fetch_succeeded": 3,
+      "article_titles_sample": [
+        "Bạn cần biết - Thông tin sản phẩm, dịch vụ, kinh doanh - Báo Thanh Niên",
+        "Thời tiết - Dự báo hôm nay, ngày mai, 10 ngày tới ra sao",
+        "Tin tức 24h mới nhất, tin nhanh, tin nóng hàng ngày | Báo Thanh Niên"
+      ],
+      "total_elapsed_ms": 3624.05
+    },
+    {
+      "source_name": "Dan Tri",
+      "base_url": "https://dantri.com.vn",
+      "status": "success",
+      "error": null,
+      "homepage_fetch_ms": 417.25,
+      "article_links_found": 10,
+      "article_links_sample": [
+        "https://dantri.com.vn/",
+        "https://dantri.com.vn/event/vck-u17-dong-nam-a-2026-8845.htm",
+        "https://dantri.com.vn/event/lich-nghi-le-gio-to-va-304-15-8811.htm",
+        "https://dantri.com.vn/event/chuan-hoa-thong-tin-thue-bao-di-dong-8848.htm",
+        "https://dantri.com.vn/event/ky-hop-thu-nhat-quoc-hoi-khoa-xvi-8720.htm"
+      ],
+      "article_fetch_attempted": 3,
+      "article_fetch_succeeded": 3,
+      "article_titles_sample": [
+        "Tin tức Việt Nam và quốc tế nóng, nhanh, cập nhật 24h | Báo Dân trí",
+        "VCK U17 Đông Nam Á 2026 | Báo Dân trí",
+        "| Báo Dân trí"
+      ],
+      "total_elapsed_ms": 2174.13
+    },
+    {
+      "source_name": "Zing News",
+      "base_url": "https://zingnews.vn",
+      "status": "success",
+      "error": null,
+      "homepage_fetch_ms": 2520.28,
+      "article_links_found": 10,
+      "article_links_sample": [
+        "https://zingnews.vn/tieu-diem/tong-bi-thu-tham-trung-quoc.html?src=home_trending",
+        "https://zingnews.vn/tieu-diem/my_tan_cong_iran.html?src=home_trending",
+        "https://zingnews.vn/tieu-diem/lanh-dao-2026-2031.html?src=home_trending",
+        "https://zingnews.vn/tieu-diem/daihoihoixuatban.html",
+        "https://zingnews.vn/series/vodcast.html"
+      ],
+      "article_fetch_attempted": 3,
+      "article_fetch_succeeded": 3,
+      "article_titles_sample": [
+        "Tổng Bí thư, Chủ tịch nước thăm Trung Quốc - Tin tức cập nhật mới nhất 24h hôm nay | Znews.vn",
+        "Tình hình chiến sự Mỹ, Israel và Iran mới nhất hôm nay | Znews.vn",
+        "Bộ máy lãnh đạo 2026-2031 - Tin tức cập nhật mới nhất 24h hôm nay | Znews.vn"
+      ],
+      "total_elapsed_ms": 4308.35
+    }
+  ]
+}

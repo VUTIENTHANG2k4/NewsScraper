@@ -1,0 +1,10 @@
+{
+  "run_at_utc": "2026-04-17T09:50:10.255512+00:00",
+  "source_inserted": true,
+  "crawl_triggered": true,
+  "crawl_log_status": "partial",
+  "news_found_for_source": 45,
+  "pass": true,
+  "elapsed_ms": 205489.77,
+  "error": null
+}

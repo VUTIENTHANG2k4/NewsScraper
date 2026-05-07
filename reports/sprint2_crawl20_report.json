@@ -1,0 +1,211 @@
+{
+  "run_at_utc": "2026-04-17T08:59:24.603836+00:00",
+  "active_sources": 20,
+  "crawl_logs_created": 20,
+  "success_count": 17,
+  "partial_count": 0,
+  "error_count": 3,
+  "elapsed_ms": 24826.91,
+  "source_results": [
+    {
+      "source_id": "69e1f2bb39330c7683f6a4c9",
+      "source_name": "VnExpress",
+      "crawled_at": "2026-04-17 08:58:59.829818+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017219"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4ca",
+      "source_name": "Tuoi Tre",
+      "crawled_at": "2026-04-17 08:59:00.130246+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721e"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4cb",
+      "source_name": "Thanh Nien",
+      "crawled_at": "2026-04-17 08:59:00.322726+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017217"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4cc",
+      "source_name": "Dan Tri",
+      "crawled_at": "2026-04-17 08:59:00.512946+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017216"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4cd",
+      "source_name": "Zing News",
+      "crawled_at": "2026-04-17 08:59:00.704586+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017224"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4ce",
+      "source_name": "VietnamNet",
+      "crawled_at": "2026-04-17 08:59:00.897244+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017218"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4cf",
+      "source_name": "Nhan Dan",
+      "crawled_at": "2026-04-17 08:59:01.086407+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017220"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d0",
+      "source_name": "Lao Dong",
+      "crawled_at": "2026-04-17 08:59:01.275871+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721a"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d1",
+      "source_name": "Tien Phong",
+      "crawled_at": "2026-04-17 08:59:01.466395+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017222"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d2",
+      "source_name": "Nguoi Lao Dong",
+      "crawled_at": "2026-04-17 08:59:01.656109+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721c"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d3",
+      "source_name": "Phap Luat TP.HCM",
+      "crawled_at": "2026-04-17 08:59:01.856310+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721b"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d4",
+      "source_name": "An Ninh Thu Do",
+      "crawled_at": "2026-04-17 08:59:02.049344+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017221"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d5",
+      "source_name": "Suc Khoe Doi Song",
+      "crawled_at": "2026-04-17 08:59:02.242248+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "error",
+      "error_msg": "All connection attempts failed",
+      "_id": "69e1f66c5b99f1313b017228"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d6",
+      "source_name": "CafeF",
+      "crawled_at": "2026-04-17 08:59:02.432775+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721f"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d7",
+      "source_name": "VnEconomy",
+      "crawled_at": "2026-04-17 08:59:02.622312+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b017223"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d8",
+      "source_name": "ICTNews",
+      "crawled_at": "2026-04-17 08:59:02.813454+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "error",
+      "error_msg": "All connection attempts failed",
+      "_id": "69e1f66c5b99f1313b017229"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4d9",
+      "source_name": "Bao Moi",
+      "crawled_at": "2026-04-17 08:59:03.005554+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6625b99f1313b017227"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4da",
+      "source_name": "Kenh14",
+      "crawled_at": "2026-04-17 08:59:03.006132+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6615b99f1313b017226"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4db",
+      "source_name": "GameK",
+      "crawled_at": "2026-04-17 08:59:03.006172+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "success",
+      "error_msg": null,
+      "_id": "69e1f6575b99f1313b01721d"
+    },
+    {
+      "source_id": "69e1f2bb39330c7683f6a4dc",
+      "source_name": "BBC Tieng Viet",
+      "crawled_at": "2026-04-17 08:59:03.196213+00:00",
+      "articles_found": 0,
+      "articles_new": 0,
+      "status": "error",
+      "error_msg": "All connection attempts failed",
+      "_id": "69e1f6595b99f1313b017225"
+    }
+  ]
+}
