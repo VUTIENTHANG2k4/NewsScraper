@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -10,12 +11,17 @@ from db.mongo import close_mongo_connection, connect_to_mongo
 from db.seed import seed_sources_if_empty
 from scraper.scheduler import start_scheduler, stop_scheduler
 
+logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    await connect_to_mongo()
-    await seed_sources_if_empty()
-    start_scheduler()
+    try:
+        await connect_to_mongo()
+        await seed_sources_if_empty()
+        start_scheduler()
+    except Exception as exc:
+        logger.error("Startup error (MongoDB/scheduler): %s", exc)
     yield
     stop_scheduler()
     await close_mongo_connection()
