@@ -1,0 +1,29 @@
+version: "3.9"
+
+# Dùng file này khi kết nối MongoDB Atlas (cloud)
+# Chạy: docker compose -f docker-compose.atlas.yml up -d
+#
+# Yêu cầu: file .env phải có MONGODB_URI dạng:
+# MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0 --port 5173

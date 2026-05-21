@@ -1,19 +1,37 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
+*.egg-info/
 
 # Node
 node_modules/
 dist/
+.vite/
 
-# Env
+# Env — KHÔNG bao giờ commit file chứa credentials thật
 .env
+.env.prod
+.env.local
+.env.*.local
+
+# Reports (sinh ra tự động bởi scripts, không cần track)
+reports/*.json
+
+# Logs
+*.log
+logs/
 
 # OS/Editor
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
+*.swp
+*.swo
