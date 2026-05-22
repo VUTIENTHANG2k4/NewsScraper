@@ -1,3 +1,5 @@
+import { formatDateTimeGmt7 } from "../utils/datetime";
+
 export default function SourceRow({ source, onToggle, onDelete, onCrawlNow }) {
   return (
     <tr>
@@ -41,7 +43,7 @@ export default function SourceRow({ source, onToggle, onDelete, onCrawlNow }) {
       </td>
       <td>
         {source.last_crawled
-          ? new Date(source.last_crawled).toLocaleString("vi-VN")
+          ? formatDateTimeGmt7(source.last_crawled)
           : "—"}
       </td>
       <td>

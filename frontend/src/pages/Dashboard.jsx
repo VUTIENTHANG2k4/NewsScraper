@@ -9,6 +9,7 @@ import {
   updateSource
 } from "../api/client";
 import SourceRow from "../components/SourceRow";
+import { formatDateTimeGmt7 } from "../utils/datetime";
 
 function extractErrorMessage(error, fallback) {
   return error?.response?.data?.detail || error?.message || fallback;
@@ -118,7 +119,7 @@ export default function Dashboard() {
             style={{ fontSize: "1.05rem", lineHeight: 1.3, fontWeight: 600 }}
           >
             {statsQuery.data?.last_crawl_at
-              ? new Date(statsQuery.data.last_crawl_at).toLocaleString("vi-VN")
+              ? formatDateTimeGmt7(statsQuery.data.last_crawl_at)
               : "—"}
           </span>
         </div>

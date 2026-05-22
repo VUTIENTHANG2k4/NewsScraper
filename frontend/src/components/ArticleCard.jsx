@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { formatDateTimeGmt7 } from "../utils/datetime";
 
 export default function ArticleCard({ article }) {
   const [imgError, setImgError] = useState(false);
 
   const dateLabel = article.published_at
-    ? new Date(article.published_at).toLocaleString("vi-VN", {
+    ? formatDateTimeGmt7(article.published_at, {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",

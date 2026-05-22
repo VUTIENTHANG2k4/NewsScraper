@@ -1,3 +1,5 @@
+import { formatDateTimeGmt7 } from "../utils/datetime";
+
 const FIELD_LABELS = {
   title: "Tiêu đề",
   author: "Tác giả",
@@ -24,7 +26,7 @@ export default function PreviewCard({ result }) {
   const formattedDate = published_at
     ? (() => {
         try {
-          return new Date(published_at).toLocaleString("vi-VN");
+          return formatDateTimeGmt7(published_at);
         } catch {
           return published_at;
         }
