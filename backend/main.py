@@ -7,24 +7,31 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.routes_crawl import router as crawl_router
 from api.routes_news import router as news_router
 from api.routes_sources import router as sources_router
+from config import settings
 from db.mongo import close_mongo_connection, connect_to_mongo
 from db.seed import seed_sources_if_empty
 from scraper.scheduler import start_scheduler, stop_scheduler
 
+logging.basicConfig(
+    level=getattr(logging, settings.log_level.upper(), logging.INFO),
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
 logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    # Lỗi ở startup phải làm app fail nhanh để Docker/orchestrator restart,
+    # tránh trạng thái "app up nhưng scheduler chết / Mongo chưa kết nối".
+    await connect_to_mongo()
+    await seed_sources_if_empty()
+    start_scheduler()
+    logger.info("Application started, scheduler running.")
     try:
-        await connect_to_mongo()
-        await seed_sources_if_empty()
-        start_scheduler()
-    except Exception as exc:
-        logger.error("Startup error (MongoDB/scheduler): %s", exc)
-    yield
-    stop_scheduler()
-    await close_mongo_connection()
+        yield
+    finally:
+        stop_scheduler()
+        await close_mongo_connection()
 
 
 app = FastAPI(title="News Scraper API", version="1.0.0", lifespan=lifespan)
@@ -44,13 +51,13 @@ app.include_router(crawl_router, prefix="/api/v1")
 
 @app.get("/health")
 async def healthcheck() -> dict:
-    from db.mongo import client
+    from db import mongo as mongo_module
+
     mongo_status = "disconnected"
-    if client:
+    if mongo_module.client is not None:
         try:
-            # The ismaster command is cheap and does not require auth.
-            await client.admin.command('ismaster')
+            await mongo_module.client.admin.command("ping")
             mongo_status = "connected"
-        except Exception:
+        except Exception:  # noqa: BLE001
             mongo_status = "error"
     return {"status": "ok", "mongodb": mongo_status}

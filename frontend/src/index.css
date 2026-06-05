@@ -34,6 +34,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Luôn chừa chỗ cho scrollbar dọc để 3 trang có cùng chiều ngang content,
+     tránh layout dịch nhẹ khi trang có/không có scrollbar. */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -80,9 +83,18 @@ a.top-nav__brand:hover {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 24px 20px 40px;
+  width: 100%;
+}
+
+/* Bảo đảm content chính của mỗi trang (Tin tức / Quản lý nguồn / Thêm nguồn)
+   chiếm cùng chiều ngang trong .container. */
+.container > section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* —— Navbar —— */
@@ -1190,4 +1202,35 @@ pre.preview-json {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+/* —— Error boundary & 404 —— */
+.error-boundary {
+  margin: 32px auto;
+  max-width: 600px;
+  padding: 24px 28px;
+  background: var(--color-danger-soft);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  color: #991b1b;
+}
+
+.error-boundary h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.not-found {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.not-found .page-header {
+  margin-bottom: 24px;
+}
+
+.not-found .page-header p {
+  margin-left: auto;
+  margin-right: auto;
 }

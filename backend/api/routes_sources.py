@@ -1,9 +1,10 @@
 from datetime import UTC, datetime
 
 from bson import ObjectId
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from pymongo.errors import DuplicateKeyError
 
+from api.deps import require_api_key
 from db.mongo import get_collections
 from models.source import SourceCreate, SourceUpdate
 
@@ -31,7 +32,7 @@ async def get_sources() -> list[dict]:
     return [_serialize_source(doc) for doc in docs]
 
 
-@router.post("", status_code=status.HTTP_201_CREATED)
+@router.post("", status_code=status.HTTP_201_CREATED, dependencies=[Depends(require_api_key)])
 async def create_source(payload: SourceCreate) -> dict:
     collections = get_collections()
     document = {
@@ -53,7 +54,7 @@ async def create_source(payload: SourceCreate) -> dict:
     return _serialize_source(created)
 
 
-@router.patch("/{source_id}")
+@router.patch("/{source_id}", dependencies=[Depends(require_api_key)])
 async def update_source(source_id: str, payload: SourceUpdate) -> dict:
     collections = get_collections()
     try:
@@ -82,7 +83,7 @@ async def update_source(source_id: str, payload: SourceUpdate) -> dict:
     return _serialize_source(updated)
 
 
-@router.delete("/{source_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{source_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(require_api_key)])
 async def delete_source(source_id: str) -> None:
     collections = get_collections()
     try:

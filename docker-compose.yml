@@ -3,15 +3,22 @@ version: "3.9"
 services:
   mongodb:
     image: mongo:7
+    # Chỉ bind vào localhost — không expose ra network ngoài.
+    # Nếu cần kết nối từ máy host để debug, dùng: docker compose exec mongodb mongosh
     ports:
-      - "27017:27017"
+      - "127.0.0.1:27017:27017"
     volumes:
       - mongo_data:/data/db
     environment:
       MONGO_INITDB_DATABASE: newsdb
+      # Thay "changeme" bằng mật khẩu thật khi dùng MongoDB local.
+      # Nếu dùng Atlas thì service này không cần start, bỏ qua.
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-changeme}
 
   backend:
     build: ./backend
+    restart: unless-stopped
     ports:
       - "8000:8000"
     depends_on:
@@ -20,10 +27,14 @@ services:
       - .env
     volumes:
       - ./backend:/app
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --workers 1
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      # Dùng stage "builder" (node:20-alpine) thay vì stage cuối (nginx)
+      # để chạy vite dev server trong dev environment.
+      target: builder
     ports:
       - "5173:5173"
     depends_on:

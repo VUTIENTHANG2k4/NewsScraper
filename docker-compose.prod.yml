@@ -1,0 +1,29 @@
+version: "3.9"
+
+# Production override — dùng cùng với docker-compose.yml:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#
+# Khác biệt so với dev:
+#   - Frontend: bỏ target builder → build nginx stage, không mount source code
+#   - Backend: không mount source code vào container
+#   - Tất cả services: restart unless-stopped
+
+services:
+  mongodb:
+    restart: unless-stopped
+
+  backend:
+    restart: unless-stopped
+    volumes: []
+
+  frontend:
+    restart: unless-stopped
+    build:
+      context: ./frontend
+      target: ""
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+    ports:
+      - "80:80"
+    volumes: []
+    command: ""

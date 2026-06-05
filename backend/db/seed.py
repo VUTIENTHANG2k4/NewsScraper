@@ -2,11 +2,82 @@ from datetime import UTC, datetime
 
 from db.mongo import get_collections
 
+
+def _empty_selectors() -> dict:
+    return {
+        "article_list": "",
+        "title": "",
+        "author": "",
+        "content": "",
+        "published_at": "",
+        "image": "",
+        "date_format": "",
+    }
+
+
+def _selectors(**overrides) -> dict:
+    base = _empty_selectors()
+    base.update(overrides)
+    return base
+
+
+# Một số nguồn lớn: cấu hình selector tối thiểu để lấy được title/content/published_at
+# chính xác thay vì rơi vào fallback (vốn gán published_at = now()).
 SEED_SOURCES = [
-    {"name": "VnExpress", "base_url": "https://vnexpress.net", "crawl_type": "http"},
-    {"name": "Tuoi Tre", "base_url": "https://tuoitre.vn", "crawl_type": "http"},
-    {"name": "Thanh Nien", "base_url": "https://thanhnien.vn", "crawl_type": "http"},
-    {"name": "Dan Tri", "base_url": "https://dantri.com.vn", "crawl_type": "http"},
+    {
+        "name": "VnExpress",
+        "base_url": "https://vnexpress.net",
+        "crawl_type": "http",
+        "selectors": _selectors(
+            article_list="h3.title-news a, h2.title-news a",
+            title="h1.title-detail",
+            author=".author",
+            content="article.fck_detail",
+            published_at=".date",
+            image='meta[property="og:image"]',
+        ),
+    },
+    {
+        "name": "Tuoi Tre",
+        "base_url": "https://tuoitre.vn",
+        "crawl_type": "http",
+        "selectors": _selectors(
+            article_list="h3.box-title-news a, a.box-category-link-title",
+            title="h1.article-title, h1.detail-title",
+            author=".author-info",
+            content=".detail-content",
+            published_at=".date-time",
+            image='meta[property="og:image"]',
+        ),
+    },
+    {
+        "name": "Thanh Nien",
+        "base_url": "https://thanhnien.vn",
+        "crawl_type": "http",
+        "selectors": _selectors(
+            article_list=(
+                "h2.box-title-text a, h3.box-title-text a, "
+                "h2.story__title a, h3.story__title a, "
+                ".box-category-item a.box-category-link-title"
+            ),
+            title="h1.detail-title, h1.story__title",
+            content=".detail-content, .story__detail",
+            image='meta[property="og:image"]',
+        ),
+    },
+    {
+        "name": "Dan Tri",
+        "base_url": "https://dantri.com.vn",
+        "crawl_type": "http",
+        "selectors": _selectors(
+            article_list="h3.article-title a, h2.article-title a",
+            title="h1.title-page, h1.singular-title",
+            author=".author-name",
+            content=".singular-content, .dt-news__content",
+            published_at=".author-time, time",
+            image='meta[property="og:image"]',
+        ),
+    },
     {"name": "Zing News", "base_url": "https://zingnews.vn", "crawl_type": "http"},
     {"name": "VietnamNet", "base_url": "https://vietnamnet.vn", "crawl_type": "http"},
     {"name": "Nhan Dan", "base_url": "https://nhandan.vn", "crawl_type": "http"},
@@ -34,18 +105,6 @@ SEED_SOURCES = [
 ]
 
 
-def _empty_selectors() -> dict:
-    return {
-        "article_list": "",
-        "title": "",
-        "author": "",
-        "content": "",
-        "published_at": "",
-        "image": "",
-        "date_format": "",
-    }
-
-
 async def seed_sources_if_empty() -> None:
     collections = get_collections()
     source_count = await collections["sources"].count_documents({})
@@ -61,7 +120,7 @@ async def seed_sources_if_empty() -> None:
                 "base_url": item["base_url"],
                 "crawl_type": item["crawl_type"],
                 "selector_type": "css",
-                "selectors": _empty_selectors(),
+                "selectors": item.get("selectors") or _empty_selectors(),
                 "is_active": True,
                 "last_crawled": None,
                 "created_at": now,

@@ -52,7 +52,15 @@ export default function SourceRow({ source, onToggle, onDelete, onCrawlNow }) {
         </button>
       </td>
       <td>
-        <button type="button" className="btn btn--danger btn--sm" onClick={() => onDelete(source.id)}>
+        <button
+          type="button"
+          className="btn btn--danger btn--sm"
+          onClick={() => {
+            if (window.confirm(`Xóa nguồn "${source.name}"?\nThao tác này không thể hoàn tác.`)) {
+              onDelete(source.id);
+            }
+          }}
+        >
           Xóa
         </button>
       </td>

@@ -61,7 +61,8 @@ async def main() -> None:
         active_sources = await collections["sources"].count_documents({"is_active": True})
         logs_before = await collections["crawl_logs"].count_documents({})
 
-        run_logs = await crawl_active_sources()
+        run_result = await crawl_active_sources()
+        run_logs = run_result["logs"] if isinstance(run_result, dict) else run_result
 
         logs_after = await collections["crawl_logs"].count_documents({})
         crawl_logs_created = logs_after - logs_before

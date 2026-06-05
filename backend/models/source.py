@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Literal
 
 from pydantic import BaseModel, Field, HttpUrl
@@ -23,9 +22,13 @@ class SourceCreate(BaseModel):
 
 
 class SourceUpdate(BaseModel):
+    """
+    Field hợp lệ user được PATCH. last_crawled là field nội bộ do engine cập nhật,
+    không cho client sửa qua API.
+    """
+
     name: str | None = Field(default=None, min_length=1, max_length=120)
     crawl_type: Literal["http", "playwright"] | None = None
     selector_type: Literal["css", "xpath"] | None = None
     selectors: SourceSelectors | None = None
     is_active: bool | None = None
-    last_crawled: datetime | None = None

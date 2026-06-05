@@ -4,6 +4,7 @@ import { getNews, getSources } from "../api/client";
 import ArticleCard from "../components/ArticleCard";
 import FilterBar from "../components/FilterBar";
 import Pagination from "../components/Pagination";
+import { dateInputToIso } from "../utils/datetime";
 
 const defaultFilters = {
   q: "",
@@ -21,8 +22,8 @@ export default function NewsFeed() {
   const params = useMemo(() => {
     const payload = { page, limit };
     if (appliedFilters.q) payload.q = appliedFilters.q;
-    if (appliedFilters.from) payload.from = new Date(appliedFilters.from).toISOString();
-    if (appliedFilters.to) payload.to = new Date(appliedFilters.to).toISOString();
+    if (appliedFilters.from) payload.from = dateInputToIso(appliedFilters.from, "start");
+    if (appliedFilters.to) payload.to = dateInputToIso(appliedFilters.to, "end");
     if (appliedFilters.source_id) payload.source_id = appliedFilters.source_id;
     return payload;
   }, [appliedFilters, page]);
